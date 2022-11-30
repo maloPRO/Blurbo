@@ -135,6 +135,25 @@
   outline: 1px solid #fffada;
 
 }
+#allMedia {
+  font-size: 2rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #f34346;
+  
+}
+#allMediaText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#allMediaText  p{
+  color: red;
+  text-align: center;
+}
 .albumCard {
   height: 300px;
   display: flex;
@@ -154,6 +173,7 @@
   font-size: 2rem;
   font-weight: 900;
   color: #888;
+  padding: 10px;
 
 }
 
@@ -178,7 +198,7 @@
 
 /* Image slider */ 
 .imageSliderContainer {
-  width: 100%;
+  width: 80%;
   height: 80%;
   background-color: #44403c;
   margin: auto;
@@ -222,10 +242,10 @@
   user-select: none;
 }
 .prev {
-  left: 0;
+  left: 10%;
 }
 .next {
-  right: 0;
+  right: 10%;
   border-radius: 3px 0 0 3px;
 }
 .prev:hover, .next:hover {
