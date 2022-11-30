@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 import plusIcon from './images/plusIcon.png';
 import deleteIcon from './images/delete.png';
+import imageSliderModule from './images';
 
 const albumModule = (function () {
-  const albumList = [];
+  const albumList = JSON.parse(localStorage.getItem('albums')) || [];
   const albumSlider = document.getElementById('album-slider');
   const addAlbumDiv = document.createElement('div');
   const addIcon = new Image();
@@ -33,9 +34,11 @@ const albumModule = (function () {
     }
   }
 
-  const addAlbum = () => {
+  const addAlbum = (title) => {
     const newAlbum = new Album(titleInput.value);
     albumList.push(newAlbum);
+    localStorage.setItem('albums', JSON.stringify(albumList));
+    return { title };
   };
 
   const displayForm = () => {
@@ -46,16 +49,21 @@ const albumModule = (function () {
     addAlbumDiv.removeChild(form);
     addAlbumDiv.appendChild(addIcon);
   };
-  const displayAlbum = () => {
+  const displayAlbum = ({ title }) => {
     const albumCard = document.createElement('div');
+    const albumName = document.createElement('div');
+
     albumSlider.removeChild(addAlbumDiv);
     albumSlider.appendChild(albumCard);
-    albumCard.classList.add('albums');
-    albumCard.textContent = titleInput.value;
+
+    albumCard.classList.add('albumCard');
+    albumName.classList.add('albums');
+    albumName.textContent = `${title.charAt(0).toUpperCase()}${title.slice(1).toLowerCase()}`;
 
     const deleteAlbum = document.createElement('div');
     deleteAlbum.classList.add('deleteAlbum');
-    albumCard.appendChild(deleteAlbum);
+
+    albumCard.append(albumName, deleteAlbum);
 
     const deleteBtn = new Image();
     deleteBtn.src = deleteIcon;
@@ -63,16 +71,21 @@ const albumModule = (function () {
 
     deleteAlbum.addEventListener('click', function () {
       this.parentElement.remove();
+      albumList.forEach((album, index) => {
+        albumList.splice(index, 1);
+        localStorage.setItem('albums', JSON.stringify(albumList));
+      });
     });
     albumSlider.appendChild(addAlbumDiv);
   };
 
   function handleForm(e) {
-    addAlbum();
-    displayAlbum();
+    e.preventDefault();
+    const album = addAlbum(titleInput.value);
+    displayAlbum(album);
     closeForm();
     form.reset();
-    e.preventDefault();
+    imageSliderModule.albumSelect();
   }
   albumList.forEach(displayAlbum);
 

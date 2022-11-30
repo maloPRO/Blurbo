@@ -1,3 +1,6 @@
 /* eslint-disable no-console */
-import css from './main.css';
-import albumModule from './albums';
+import './main.css';
+import './albums';
+import imageSliderModule from './images';
+
+imageSliderModule.albumSelect();
