@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,400&family=Poppins&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+#content {
+  display: grid;
+  min-height: 100vh;
+  grid-template: .1fr 1fr / 1fr;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Navigation */ 
+#nav {
+  display: grid;
+  position: sticky;
+  grid-template: 1fr / 1fr 6fr 1fr;
+  background-color: #fffada;
+  color: #444;
+  border-bottom: 1px solid #222;
+}
+#nav-left {
+  display: grid;
+  align-items: center;
+  padding: 5px;
+}
+#nav-center {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+#nav-right {
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.nav-r-items {
+  display: grid;
+  justify-content: center;
+  font-weight: 700;
+  padding: 0 3px;
+}
+.nav-r-items:hover {
+  cursor: pointer;
+  color: red;
+}
+.menu {
+  display: none;
+}
+#menu-items {
+  display: none;
+}
+#logo {
+  display: flex;
+  align-items: flex-end;
+}
+#logo img {
+  width: 4rem;
+  height: 3rem;
+}
+#logo span {
+  font-size: 2rem;
+  padding-left: 10px;
+  font-weight: 900;
+  color: #f34346;
+}
+#menu-icon-web img {
+  width: 1.5rem;
+}
+
+/* article */
+
+#article {
+  display: grid;
+  align-items: center;
+  background-color: #171717;
+  background: url('./images/bg3.jpg');
+  background-size: cover;
+  padding: 0 20px;
+}
+#slide-show-container {
+  width: 100%;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  justify-items: center;
+  align-items: center;
+}
+#album-slider {
+  width: 90%;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 50px;
+}
+.addAlbumDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px solid #222;
+  height: 300px;
+}
+.addAlbumDiv img {
+  width: 4rem;
+}
+.addAlbumDiv img:hover {
+  cursor: pointer;
+}
+.albumForm {
+  width: 100%;
+  padding: 0 5px;
+  display: grid;
+  grid-template: 1fr .9fr / 1fr 1fr;
+  gap: 5px;
+
+}
+.albumForm input {
+  grid-area: 1/1/2/3;
+  height: 2rem;
+}
+.albumForm button {
+  font-size: 1rem;
+  border: none;
+  font-weight: 400;
+}
+.albumForm button:hover {
+  cursor: pointer;
+  color: #fffada;
+  background-color: #222;
+  outline: 1px solid #fffada;
+
+}
+#allMedia {
+  font-size: 2rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #f34346;
+  
+}
+#allMediaText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#allMediaText  p{
+  color: red;
+  text-align: center;
+}
+.albumCard {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2rem;
+  outline: 1px solid #999;
+  border-radius: 3px;
+}
+.albums {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #888;
+  padding: 10px;
+
+}
+
+.albumCard:hover {
+  cursor: pointer;
+  color: #444;
+  background-color: #fff;
+}
+.deleteAlbum {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+.deleteAlbum img {
+  width: 1.2rem;
+}
+.deleteAlbum:hover {
+  background-color: #630507;
+}
+
+/* Image slider */ 
+.imageSliderContainer {
+  width: 80%;
+  height: 80%;
+  background-color: #44403c;
+  margin: auto;
+  overflow: hidden;
+
+}
+.close {
+  position: relative;
+  float: right;
+  right: 0;
+  background: none;
+  color: #fffada;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+}
+.cross {
+  padding: 5px;
+  rotate: 45deg;
+}
+.cross:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.prev, 
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.prev {
+  left: 10%;
+}
+.next {
+  right: 10%;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: #000000cc;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+@media only screen and (max-width: 700px) {
+  
+}
